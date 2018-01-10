@@ -27,13 +27,7 @@ public class PlayerBehavoiur : MonoBehaviour {
     }
 
     private void updateSaturation() {
-        if (verticalInput != 0 || horizontalInput != 0) {
-            hungerTime += Time.deltaTime * 2;
-        }
-        else {
-            hungerTime += Time.deltaTime;
-        }
-
+        hungerTime += Time.deltaTime;
 
         if (hungerTime >= HungerFrequency) {
             hungerTime = 0;
