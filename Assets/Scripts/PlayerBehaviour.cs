@@ -14,16 +14,26 @@ public class PlayerBehaviour : MonoBehaviour {
     public Text HealthText;
     public Text HighscoreText;
 
+
+    
+    //Healthbar
+
+    public Image[] Hearts;
+
+
     private float horizontalInput;
     private float verticalInput;
     private bool attackInput;
     public static long Highscore;
+    public float attackCooldown; //Mindestzeitabstand zwischen 2 Attacken; verhindert spammen
+    private float letzteAttacke; //Zeit der letzten Attacke
 
     private List<EnemyBehaviour> enemiesInRange;
 
     private void Awake() {
         enemiesInRange = new List<EnemyBehaviour>();
         Highscore = 0;
+        
     }
 
     private void Update() {
@@ -32,6 +42,8 @@ public class PlayerBehaviour : MonoBehaviour {
         updateHealthText();
         updateHighscoreText();
         checkForAttack();
+
+        updateHealthbar();
     }
 
     private void getInput() {
@@ -52,8 +64,21 @@ public class PlayerBehaviour : MonoBehaviour {
         HealthText.text = text;
     }
 
+    private void updateHealthbar ()
+    {
+        for (int i = 0; i < HealthPoints; i++)
+        {
+            Hearts[i].enabled = true;
+        }
+        for (int i = HealthPoints; i < 10; i++)
+        {
+            Hearts[i].enabled = false;
+        }
+             
+    }
+
     private void checkForAttack() {
-        if (attackInput) {
+        if (attackInput && attackCooldown < Time.time - letzteAttacke) {
             EnemyBehaviour[] enemies = new EnemyBehaviour[enemiesInRange.Count];
             enemiesInRange.CopyTo(enemies);
             foreach (var enemy in enemies) {
@@ -84,6 +109,8 @@ public class PlayerBehaviour : MonoBehaviour {
         Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.AddForce(direction.normalized * -AttackForce, ForceMode2D.Impulse);
+
+        letzteAttacke = Time.time;
     }
 
     private void FixedUpdate() {
@@ -153,6 +180,9 @@ public class PlayerBehaviour : MonoBehaviour {
         }
         else if (collision.tag == "Heart") {
             HealthPoints += 1;
+            if (HealthPoints > 10) {  //Healthpoints auf maximal 10 begrenzen
+                HealthPoints = 10;
+            }
             Destroy(collision.gameObject);
         }
     }
