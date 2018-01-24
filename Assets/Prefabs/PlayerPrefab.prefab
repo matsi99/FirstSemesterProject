@@ -153,6 +153,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   attackCooldown: 0.5
+  zeitGefressen: 1
 --- !u!212 &212174567118525646
 SpriteRenderer:
   m_ObjectHideFlags: 1
