@@ -15,7 +15,7 @@ public class PlayerBehaviour : MonoBehaviour {
     public Text HighscoreText;
 
 
-    
+
     //Healthbar
 
     public Image[] Hearts;
@@ -32,11 +32,13 @@ public class PlayerBehaviour : MonoBehaviour {
 
     private List<Enemy> enemiesInRange;
     //private List<TeddyBehaviour> teddiesInRange;
+    private List<Enemy> currentAttackList;
 
     private Animator animator;
 
     private void Awake() {
         enemiesInRange = new List<Enemy>();
+        currentAttackList = new List<Enemy>();
         //teddiesInRange = new List<TeddyBehaviour>();
         Highscore = 0;
         animator = GetComponent<Animator>();
@@ -45,11 +47,10 @@ public class PlayerBehaviour : MonoBehaviour {
     private void Update() {
         getInput();
         cameraFollow();
-        if (state != "gefressen")
-        { 
-        updateHealthText();
-        updateHighscoreText();
-        checkForAttack();
+        if (state != "gefressen") {
+            updateHealthText();
+            updateHighscoreText();
+            checkForAttack();
         }
         updateHealthbar();
     }
@@ -72,46 +73,41 @@ public class PlayerBehaviour : MonoBehaviour {
         HealthText.text = text;
     }
 
-    private void updateHealthbar ()
-    {
-        for (int i = 0; i < HealthPoints; i++)
-        {
+    private void updateHealthbar() {
+        for (int i = 0; i < HealthPoints; i++) {
             Hearts[i].enabled = true;
         }
-        for (int i = HealthPoints; i < 10; i++)
-        {
+        for (int i = HealthPoints; i < 10; i++) {
             Hearts[i].enabled = false;
         }
-             
+
     }
 
     private void checkForAttack() {
-        if(attackCooldown < Time.time - letzteAttacke) {
+        if (attackCooldown < Time.time - letzteAttacke) {
             attacking = false;
         }
 
-        if(attackInput && attacking == false) {
+        if (attackInput && attacking == false) {
             attacking = true;
             animator.Play("attack");
             letzteAttacke = Time.time;
-        }
 
-        if (attacking) {
             Enemy[] enemies = new Enemy[enemiesInRange.Count];
             enemiesInRange.CopyTo(enemies);
             foreach (var enemy in enemies) {
-                    if (enemy == null) {
-                        enemiesInRange.Remove(enemy);
-                        continue;
-                    }
+                if (enemy == null) {
+                    enemiesInRange.Remove(enemy);
+                    continue;
+                }
 
-                    attack(enemy);
+                attack(enemy);
 
-                    if (enemy.isActiveAndEnabled == false) {
-                        Highscore += (int)Time.time * 10;
-                        enemiesInRange.Remove(enemy);
-                        Destroy(enemy.gameObject);
-                    }
+                if (enemy.isActiveAndEnabled == false) {
+                    Highscore += (int)Time.time * 10;
+                    enemiesInRange.Remove(enemy);
+                    Destroy(enemy.gameObject);
+                }
             }
         }
     }
@@ -131,8 +127,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     private void FixedUpdate() {
         //move();
-        if (state != "gefressen")
-        {
+        if (state != "gefressen") {
             moveGleichschnell();
             transform.rotation = new Quaternion(0, 0, 0, 0);
         }
@@ -168,8 +163,7 @@ public class PlayerBehaviour : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy" && state != "gefressen") {
             wirdWeggestoßen(collision);
         }
-        else if (collision.gameObject.tag == "Teddy" && state != "gefressen")
-        {
+        else if (collision.gameObject.tag == "Teddy" && state != "gefressen") {
             //Debug.Log("Teddy collision    " + Time.time);
             StartCoroutine(wirdGefressen(collision));
         }
@@ -188,13 +182,12 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     //Spieler wird gefressen
-    IEnumerator  wirdGefressen (Collision2D collision)
-    {
+    IEnumerator wirdGefressen(Collision2D collision) {
         state = "gefressen";
         SpriteRenderer sr;
         sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
-        yield return new  WaitForSeconds(zeitGefressen);
+        yield return new WaitForSeconds(zeitGefressen);
         sr.enabled = true;
         //Ausspucken
         TeddyBehaviour teddy = collision.gameObject.GetComponent<TeddyBehaviour>();
@@ -205,7 +198,7 @@ public class PlayerBehaviour : MonoBehaviour {
         rb.AddForce(direction * 50, ForceMode2D.Impulse);
 
         state = "";
-        
+
         RemoveHealth(1);
     }
 
@@ -222,6 +215,9 @@ public class PlayerBehaviour : MonoBehaviour {
         if (collision.tag == "Enemy" || collision.tag == "Teddy") {
             var enemy = collision.gameObject.GetComponent<Enemy>();
             enemiesInRange.Add(enemy);
+            if (attacking) {
+                attack(enemy);
+            }
         }
         else if (collision.tag == "Heart") {
             HealthPoints += 1;
