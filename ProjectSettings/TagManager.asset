@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Food
+  - Enemy
+  - Heart
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - PlayerAttack
+  - Heart
   - 
   - 
   - 

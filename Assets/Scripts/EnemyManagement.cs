@@ -21,6 +21,9 @@ public class EnemyManagement : MonoBehaviour {
         if (refTime < Time.time)
         {
             resetTimer();
+            float x = Random.Range(-19f, 19f);
+            float y = Random.Range(-9f, 9f);
+            enemy.transform.position = new Vector3(x, y, 0);
             Instantiate(enemy);
         }  
 	}

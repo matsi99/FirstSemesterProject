@@ -7,6 +7,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public float MovementSpeed;
     public float AttackForce;
     public float HealthPoints;
+    public GameObject Heart;
 
 
     public Vector2 direction;
@@ -75,6 +76,8 @@ public class EnemyBehaviour : MonoBehaviour {
         if (HealthPoints <= 0) {
             HealthPoints = 0;
             gameObject.SetActive(false);
+            Heart.transform.position = transform.position;
+            Instantiate(Heart);
         }
     }
 }

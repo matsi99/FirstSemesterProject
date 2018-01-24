@@ -57,19 +57,24 @@ public class PlayerBehaviour : MonoBehaviour {
             EnemyBehaviour[] enemies = new EnemyBehaviour[enemiesInRange.Count];
             enemiesInRange.CopyTo(enemies);
             foreach (var enemy in enemies) {
-                attack(enemy);
-                
-                if(enemy.isActiveAndEnabled == false) {
-                    Highscore += (int)Time.time * 10;
-                    enemiesInRange.Remove(enemy);
-                    Destroy(enemy.gameObject);
-                }
+                    if (enemy == null) {
+                        enemiesInRange.Remove(enemy);
+                        continue;
+                    }
+
+                    attack(enemy);
+
+                    if (enemy.isActiveAndEnabled == false) {
+                        Highscore += (int)Time.time * 10;
+                        enemiesInRange.Remove(enemy);
+                        Destroy(enemy.gameObject);
+                    }
             }
         }
     }
 
     private void updateHighscoreText() {
-        HighscoreText.text = string.Format("Highscore: {0:n0}",Highscore);
+        HighscoreText.text = string.Format("Highscore: {0:n0}", Highscore);
     }
 
     private void attack(EnemyBehaviour enemy) {
@@ -98,12 +103,19 @@ public class PlayerBehaviour : MonoBehaviour {
     //Player bewegt sich auch diagonal mit der gleichen Geschwindigkeit
     private void moveGleichschnell() {
 
+        float speed = MovementSpeed;
+
+        var rb = GetComponent<Rigidbody2D>();
+        if (rb.velocity.magnitude > 0.1) {
+            speed = MovementSpeed / 2;
+        }
+
         //Richtungsvektor erstellen
         Vector2 direction = new Vector2(horizontalInput, verticalInput);
         //Vektor normieren (auf Länge 1 bringen)
         direction.Normalize();
 
-        transform.Translate(direction * Time.deltaTime * MovementSpeed);
+        transform.Translate(direction * Time.deltaTime * speed);
     }
 
 
@@ -138,6 +150,10 @@ public class PlayerBehaviour : MonoBehaviour {
         if (collision.tag == "Enemy") {
             var enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
             enemiesInRange.Add(enemy);
+        }
+        else if (collision.tag == "Heart") {
+            HealthPoints += 1;
+            Destroy(collision.gameObject);
         }
     }
 
