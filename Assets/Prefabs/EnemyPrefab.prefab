@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1176265811824204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9022388, y: 5.7283297, z: 0}
+  m_LocalPosition: {x: 9.916882, y: 1.2908709, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -90,11 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 4
-  AttackForce: 10
   HealthPoints: 3
-  Heart: {fileID: 1188110704118440, guid: c6834d90f6d36de46894ba44843b94c7, type: 2}
   direction: {x: 0, y: 0}
   distance: 0
+  AttackForce: 10
+  Heart: {fileID: 1188110704118440, guid: c6834d90f6d36de46894ba44843b94c7, type: 2}
   aggressionsDistance: 5
   auszeit: 2
 --- !u!212 &212336333742410698

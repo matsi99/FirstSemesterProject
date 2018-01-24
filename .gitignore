@@ -34,3 +34,4 @@ sysinfo.txt
 *.unitypackage
 Assets/Scenes/etc.meta
 UnityPackageManager/manifest.json
+Assets/Scripts/PlayerBehaviour.cs

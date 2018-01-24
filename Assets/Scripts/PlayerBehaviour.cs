@@ -20,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
     public Image[] Hearts;
 
-
+    private bool attacking = false;
     private float horizontalInput;
     private float verticalInput;
     private bool attackInput;
@@ -30,14 +30,16 @@ public class PlayerBehaviour : MonoBehaviour {
     public float zeitGefressen; //Zeit die der Spieler gefressen verbringt
     private string state;
 
-    private List<EnemyBehaviour> enemiesInRange;
-    private List<TeddyBehaviour> teddiesInRange;
+    private List<Enemy> enemiesInRange;
+    //private List<TeddyBehaviour> teddiesInRange;
+
+    private Animator animator;
 
     private void Awake() {
-        enemiesInRange = new List<EnemyBehaviour>();
-        teddiesInRange = new List<TeddyBehaviour>();
+        enemiesInRange = new List<Enemy>();
+        //teddiesInRange = new List<TeddyBehaviour>();
         Highscore = 0;
-        
+        animator = GetComponent<Animator>();
     }
 
     private void Update() {
@@ -84,8 +86,18 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     private void checkForAttack() {
-        if (attackInput && attackCooldown < Time.time - letzteAttacke) {
-            EnemyBehaviour[] enemies = new EnemyBehaviour[enemiesInRange.Count];
+        if(attackCooldown < Time.time - letzteAttacke) {
+            attacking = false;
+        }
+
+        if(attackInput && attacking == false) {
+            attacking = true;
+            animator.Play("attack");
+            letzteAttacke = Time.time;
+        }
+
+        if (attacking) {
+            Enemy[] enemies = new Enemy[enemiesInRange.Count];
             enemiesInRange.CopyTo(enemies);
             foreach (var enemy in enemies) {
                     if (enemy == null) {
@@ -108,15 +120,13 @@ public class PlayerBehaviour : MonoBehaviour {
         HighscoreText.text = string.Format("Highscore: {0:n0}", Highscore);
     }
 
-    private void attack(EnemyBehaviour enemy) {
+    private void attack(Enemy enemy) {
         Vector2 direction = enemy.direction;
         enemy.RemoveHealth(1);
 
         Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.AddForce(direction.normalized * -AttackForce, ForceMode2D.Impulse);
-
-        letzteAttacke = Time.time;
     }
 
     private void FixedUpdate() {
@@ -209,8 +219,8 @@ public class PlayerBehaviour : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag == "Enemy") {
-            var enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
+        if (collision.tag == "Enemy" || collision.tag == "Teddy") {
+            var enemy = collision.gameObject.GetComponent<Enemy>();
             enemiesInRange.Add(enemy);
         }
         else if (collision.tag == "Heart") {
@@ -220,26 +230,13 @@ public class PlayerBehaviour : MonoBehaviour {
             }
             Destroy(collision.gameObject);
         }
-        else if (collision.tag == "Teddy")
-        {
-            var teddy = collision.gameObject.GetComponent<TeddyBehaviour>();
-            teddiesInRange.Add(teddy);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag == "Enemy") {
-            var enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
+        if (collision.tag == "Enemy" || collision.tag == "Teddy") {
+            var enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemiesInRange.Contains(enemy)) {
                 enemiesInRange.Remove(enemy);
-            }
-        }
-        else if (collision.tag == "Teddy")
-        {
-            var teddy = collision.gameObject.GetComponent<TeddyBehaviour>();
-            if (teddiesInRange.Contains(teddy))
-            {
-                teddiesInRange.Remove(teddy);
             }
         }
     }

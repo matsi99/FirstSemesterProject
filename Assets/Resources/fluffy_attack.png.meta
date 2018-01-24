@@ -1,0 +1,565 @@
+fileFormatVersion: 2
+guid: 8dff86961069dce4f99c2cf099ba2b4c
+timeCreated: 1516829037
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: fluffy_attack_0
+    21300002: fluffy_attack_1
+    21300004: fluffy_attack_2
+    21300006: fluffy_attack_3
+    21300008: fluffy_attack_4
+    21300010: fluffy_attack_5
+    21300012: fluffy_attack_6
+    21300014: fluffy_attack_7
+    21300016: fluffy_attack_8
+    21300018: fluffy_attack_9
+    21300020: fluffy_attack_10
+    21300022: fluffy_attack_11
+    21300024: fluffy_attack_12
+    21300026: fluffy_attack_13
+    21300028: fluffy_attack_14
+    21300030: fluffy_attack_15
+    21300032: fluffy_attack_16
+    21300034: fluffy_attack_17
+    21300036: fluffy_attack_18
+    21300038: fluffy_attack_19
+    21300040: fluffy_attack_20
+    21300042: fluffy_attack_21
+    21300044: fluffy_attack_22
+    21300046: fluffy_attack_23
+    21300048: fluffy_attack_24
+    21300050: fluffy_attack_25
+    21300052: fluffy_attack_26
+    21300054: fluffy_attack_27
+    21300056: fluffy_attack_28
+    21300058: fluffy_attack_29
+    21300060: fluffy_attack_30
+    21300062: fluffy_attack_31
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fluffy_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_1
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_2
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_3
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_4
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_5
+      rect:
+        serializedVersion: 2
+        x: 3205
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_6
+      rect:
+        serializedVersion: 2
+        x: 3846
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_7
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 2019
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_9
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_10
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_11
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_12
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_13
+      rect:
+        serializedVersion: 2
+        x: 3205
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_14
+      rect:
+        serializedVersion: 2
+        x: 3846
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_15
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 1346
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_17
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_18
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_19
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_20
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_21
+      rect:
+        serializedVersion: 2
+        x: 3205
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_22
+      rect:
+        serializedVersion: 2
+        x: 3846
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_23
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 673
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_25
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_26
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_27
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_28
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_29
+      rect:
+        serializedVersion: 2
+        x: 3205
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_30
+      rect:
+        serializedVersion: 2
+        x: 3846
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fluffy_attack_31
+      rect:
+        serializedVersion: 2
+        x: 4487
+        y: 0
+        width: 641
+        height: 673
+      alignment: 9
+      pivot: {x: 0.51, y: 0.493}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
