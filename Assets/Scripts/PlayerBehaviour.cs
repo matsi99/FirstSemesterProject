@@ -32,28 +32,25 @@ public class PlayerBehaviour : MonoBehaviour {
 
     private List<Enemy> enemiesInRange;
     //private List<TeddyBehaviour> teddiesInRange;
-    private List<Enemy> currentAttackList;
 
     private Animator animator;
-    private Vector3 defaultScale;
+    private float zRotation = 0;
 
     private void Awake() {
         enemiesInRange = new List<Enemy>();
-        currentAttackList = new List<Enemy>();
         //teddiesInRange = new List<TeddyBehaviour>();
         Highscore = 0;
         animator = GetComponent<Animator>();
-        defaultScale = transform.localScale;
     }
 
     private void Update() {
         getInput();
         cameraFollow();
         if (state != "gefressen") {
-            updateHealthText();
-            updateHighscoreText();
             checkForAttack();
+            rotateToDirection();
         }
+        updateHighscoreText();
         updateHealthbar();
     }
 
@@ -104,9 +101,9 @@ public class PlayerBehaviour : MonoBehaviour {
                 }
 
                 attack(enemy);
+                Highscore += (int)Time.time;
 
                 if (enemy.isActiveAndEnabled == false) {
-                    Highscore += (int)Time.time * 10;
                     enemiesInRange.Remove(enemy);
                     Destroy(enemy.gameObject);
                 }
@@ -150,24 +147,53 @@ public class PlayerBehaviour : MonoBehaviour {
 
         float speed = MovementSpeed;
 
-        var rb = GetComponent<Rigidbody2D>();
-        if (rb.velocity.magnitude > 0.1) {
-            speed = MovementSpeed / 2;
-        }
+        //var rb = GetComponent<Rigidbody2D>();
+        //if (rb.velocity.magnitude > 0.1) {
+        //    speed = MovementSpeed / 2;
+        //}
 
         //Richtungsvektor erstellen
         Vector2 direction = new Vector2(horizontalInput, verticalInput);
         //Vektor normieren (auf Länge 1 bringen)
         direction.Normalize();
-        transform.Translate(direction * Time.deltaTime * speed);
+        transform.Translate(direction * Time.deltaTime * speed, Space.World);
 
-        // -> ^
-        if (verticalInput > 0.1) {
-            transform.localScale = new Vector3(defaultScale.x, -defaultScale.y, defaultScale.z);
-        }else if (verticalInput < -0.1) {
-            transform.localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
+        
+    }
+
+    private void rotateToDirection() {
+        // Rotation -> ^
+        float deltaInput = 0.4f;
+
+        if (horizontalInput > deltaInput && verticalInput > deltaInput) {
+            zRotation = 135;
+        }
+        else if (horizontalInput > deltaInput && verticalInput < -deltaInput) {
+            zRotation = 45;
+        }
+        else if (horizontalInput < -deltaInput && verticalInput > deltaInput) {
+            zRotation = 225;
+        }
+        else if (horizontalInput < -deltaInput && verticalInput < -deltaInput) {
+            zRotation = 315;
+        }
+        else if (horizontalInput > 0 && Mathf.Abs(verticalInput) < deltaInput) {
+            zRotation = 90;
+        }
+        else if (horizontalInput < 0 && Mathf.Abs(verticalInput) < deltaInput) {
+            zRotation = 270;
+        }
+        else if (verticalInput > 0 && Mathf.Abs(horizontalInput) < deltaInput) {
+            zRotation = 180;
+        }
+        else if (verticalInput < 0 && Mathf.Abs(horizontalInput) < deltaInput) {
+            zRotation = 0;
         }
 
+        Quaternion currentRotation = transform.rotation;
+        Quaternion wantedRotation = Quaternion.Euler(0, 0, zRotation);
+
+        transform.rotation = Quaternion.RotateTowards(currentRotation, wantedRotation, Time.deltaTime * 360 * 2);
     }
 
 
@@ -233,6 +259,11 @@ public class PlayerBehaviour : MonoBehaviour {
             enemiesInRange.Add(enemy);
             if (attacking) {
                 attack(enemy);
+                Highscore += (int)Time.time;
+                if (enemy.isActiveAndEnabled == false) {                   
+                    enemiesInRange.Remove(enemy);
+                    Destroy(enemy.gameObject);
+                }
             }
         }
         else if (collision.tag == "Heart") {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManagement : MonoBehaviour {
 
 
-    public EnemyBehaviour enemy;
+    public Enemy enemy;
     public float minSpawnTime;
     public float maxSpawnTime;
 

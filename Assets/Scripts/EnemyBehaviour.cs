@@ -14,6 +14,7 @@ public class EnemyBehaviour : Enemy {
 
     private Animator animator;
 
+
     private new void Start() {
         base.Start();
         letzteAttacke = Time.time;
@@ -23,18 +24,22 @@ public class EnemyBehaviour : Enemy {
     private new void FixedUpdate() {
         if (distance <= aggressionsDistance && auszeit + 1 < Time.time - letzteAttacke) {
             attack();
-
+            lockRotation = true;
         }
         else if (distance > aggressionsDistance && auszeit < Time.time - letzteAttacke) {
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             rb.velocity = Vector2.zero;
             move();
         }
-        transform.rotation = new Quaternion(0, 0, 0, 0);
+
+        if(auszeit-0.5f < Time.time - letzteAttacke) {
+            lockRotation = false;
+        }
+        //transform.rotation = new Quaternion(0, 0, 0, 0);
     }
 
     //Attacke
-    private void attack() {
+    private void attack() {       
         Rigidbody2D rb; 
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(direction * AttackForce, ForceMode2D.Impulse);
@@ -52,4 +57,6 @@ public class EnemyBehaviour : Enemy {
             Instantiate(Heart);
         }
     }
+
+
 }

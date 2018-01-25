@@ -93,7 +93,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58903141375756530
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -154,8 +154,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 8
   Cam: {fileID: 0}
-  RecoilForce: 8
-  AttackForce: 8
+  RecoilForce: 10
+  AttackForce: 10
   HealthPoints: 10
   HealthText: {fileID: 0}
   HighscoreText: {fileID: 0}

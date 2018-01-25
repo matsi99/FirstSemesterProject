@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50556141615926974}
   - component: {fileID: 58770548398687798}
   - component: {fileID: 114723783588704226}
+  - component: {fileID: 95787489265662068}
   m_Layer: 0
   m_Name: TeddyPrefab
   m_TagString: Teddy
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971179968534258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: 9.334108, y: 6.521591, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58770548398687798
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -77,7 +78,24 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.09
+  m_Radius: 0.43
+--- !u!95 &95787489265662068
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971179968534258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 28021dee735c85b41a5daa21fe48d1cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114723783588704226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 5
-  HealthPoints: 2
+  HealthPoints: 4
   direction: {x: 0, y: 0}
   distance: 0
 --- !u!212 &212987581472803386
@@ -127,8 +145,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.5661765, g: 0.37967125, b: 0.09991349, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ae358fcb0a4a1e6409cd3bb5ef3a87a3, type: 3}
+  m_Color: {r: 0.86764705, g: 0.85488755, b: 0.83574826, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
