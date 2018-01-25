@@ -170,7 +170,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  attackCooldown: 0.5
+  attackCooldown: 0.7
   zeitGefressen: 1
 --- !u!212 &212174567118525646
 SpriteRenderer:

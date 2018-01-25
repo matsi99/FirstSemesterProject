@@ -12,9 +12,12 @@ public class EnemyBehaviour : Enemy {
     public float auszeit; //Mindestzeitraum zwischen zwei Angriffen
     private float letzteAttacke; //Zeit der letzten Attacke
 
+    private Animator animator;
+
     private new void Start() {
         base.Start();
         letzteAttacke = Time.time;
+        animator = GetComponent<Animator>();
     }
 
     private new void FixedUpdate() {
@@ -36,6 +39,7 @@ public class EnemyBehaviour : Enemy {
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(direction * AttackForce, ForceMode2D.Impulse);
         letzteAttacke = Time.time;
+        animator.Play("attack", -1, 0f);
     }
 
     public override void RemoveHealth(int value) {

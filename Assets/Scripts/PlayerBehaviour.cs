@@ -35,6 +35,7 @@ public class PlayerBehaviour : MonoBehaviour {
     private List<Enemy> currentAttackList;
 
     private Animator animator;
+    private Vector3 defaultScale;
 
     private void Awake() {
         enemiesInRange = new List<Enemy>();
@@ -42,6 +43,7 @@ public class PlayerBehaviour : MonoBehaviour {
         //teddiesInRange = new List<TeddyBehaviour>();
         Highscore = 0;
         animator = GetComponent<Animator>();
+        defaultScale = transform.localScale;
     }
 
     private void Update() {
@@ -90,7 +92,7 @@ public class PlayerBehaviour : MonoBehaviour {
 
         if (attackInput && attacking == false) {
             attacking = true;
-            animator.Play("attack");
+            animator.Play("attack", -1, 0f);
             letzteAttacke = Time.time;
 
             Enemy[] enemies = new Enemy[enemiesInRange.Count];
@@ -129,7 +131,7 @@ public class PlayerBehaviour : MonoBehaviour {
         //move();
         if (state != "gefressen") {
             moveGleichschnell();
-            transform.rotation = new Quaternion(0, 0, 0, 0);
+            //transform.rotation = new Quaternion(0, 0, 0, 0);
         }
     }
 
@@ -140,6 +142,8 @@ public class PlayerBehaviour : MonoBehaviour {
 
         transform.Translate(new Vector3(xMovement, yMovement, transform.position.z));
     }
+
+    
 
     //Player bewegt sich auch diagonal mit der gleichen Geschwindigkeit
     private void moveGleichschnell() {
@@ -156,6 +160,14 @@ public class PlayerBehaviour : MonoBehaviour {
         //Vektor normieren (auf Länge 1 bringen)
         direction.Normalize();
         transform.Translate(direction * Time.deltaTime * speed);
+
+        // -> ^
+        if (verticalInput > 0.1) {
+            transform.localScale = new Vector3(defaultScale.x, -defaultScale.y, defaultScale.z);
+        }else if (verticalInput < -0.1) {
+            transform.localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
+        }
+
     }
 
 
@@ -184,14 +196,18 @@ public class PlayerBehaviour : MonoBehaviour {
     //Spieler wird gefressen
     IEnumerator wirdGefressen(Collision2D collision) {
         state = "gefressen";
+
+        TeddyBehaviour teddy = collision.gameObject.GetComponent<TeddyBehaviour>();
+        Vector2 direction = teddy.direction;
+        teddy.PlayAttackAnimation();
+
         SpriteRenderer sr;
         sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
         yield return new WaitForSeconds(zeitGefressen);
         sr.enabled = true;
         //Ausspucken
-        TeddyBehaviour teddy = collision.gameObject.GetComponent<TeddyBehaviour>();
-        Vector2 direction = teddy.direction;
+        
 
         Rigidbody2D rb;
         rb = GetComponent<Rigidbody2D>();
